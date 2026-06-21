@@ -1,4 +1,4 @@
-/* === Fonts === */
+/* === 폰트(Fonts) === */
 @font-face {
   font-family: "Noto Sans";
   src: url("./assets/fonts/static/NotoSans-Regular.ttf") format("truetype");
@@ -20,9 +20,9 @@
   font-style: normal;
 }
 
-/* === Design Tokens === */
+/* === 디자인 토큰(Design Tokens) === */
 :root {
-  /* Neutral */
+  /* 뉴트럴(Neutral, 무채색) */
   --neutral-900: #091540;
   --neutral-800: #202535;
   --neutral-700: #2F364B;
@@ -32,16 +32,16 @@
   --neutral-100: #EEEEEE;
   --neutral-0: #FBFDFE;
 
-  /* Red */
+  /* 레드(Red) */
   --red-400: #F25C54;
   --red-500: #DE4840;
   --red-700: #C7231A;
 
-  /* Gradient */
+  /* 그라데이션(Gradient) */
   --gradient-light: linear-gradient(180deg, #EBF2FC 0%, #EEFBF9 100%);
   --gradient-dark: linear-gradient(180deg, #04091B 0%, #091540 100%);
 
-  /* Spacing */
+  /* 여백(Spacing) */
   --spacing-100: 8px;
   --spacing-150: 12px;
   --spacing-200: 16px;
@@ -50,13 +50,15 @@
   --spacing-400: 32px;
   --spacing-500: 40px;
 
-  /* Radius */
+  /* 모서리 반경(Radius) */
   --radius-8: 8px;
   --radius-10: 10px;
   --radius-12: 12px;
   --radius-full: 999px;
 
-  /* Theme: Light (default) */
+  /* 의미론적(semantic) 테마 별칭: 컴포넌트는 원색 변수가 아닌 이 별칭만 참조하므로
+     아래 [data-theme="dark"] 블록만 바꾸면 테마 전체 색상이 전환됨 */
+  /* === 테마: 라이트(기본값) === */
   --color-bg: var(--gradient-light);
   --color-surface: var(--neutral-0);
   --color-border: var(--neutral-200);
@@ -65,6 +67,9 @@
   --color-toggle-track-off: var(--neutral-300);
 }
 
+/* === 테마: 다크 === */
+/* 별칭 이름은 동일하고 값만 교체. script.js가 런타임에 <html>의 data-theme
+   속성을 변경해 전환되며, 이 파일의 다른 곳에서 클래스/선택자를 바꿀 필요가 없음 */
 html[data-theme="dark"] {
   --color-bg: var(--gradient-dark);
   --color-surface: var(--neutral-800);
@@ -74,7 +79,7 @@ html[data-theme="dark"] {
   --color-toggle-track-off: var(--neutral-600);
 }
 
-/* === Reset === */
+/* === 초기화(Reset) === */
 * {
   margin: 0;
   padding: 0;
@@ -107,7 +112,7 @@ img {
   max-width: 100%;
 }
 
-/* === Header === */
+/* === 헤더(Header) === */
 .header {
   display: flex;
   align-items: center;
@@ -117,6 +122,13 @@ img {
   background: var(--color-surface);
   border-radius: var(--radius-10);
   box-shadow: 0 0 3px 0 #d9e5f4;
+}
+
+/* 라이트모드 그림자(box-shadow)는 다크 그라데이션 배경 위에서 가느다란 선처럼
+   보여 색상 변경 대신 제거함. 아래 .filter-btn, .extension-card의 다크모드
+   오버라이드(override, 재정의)도 같은 이유 */
+html[data-theme="dark"] .header {
+  box-shadow: none;
 }
 
 .header__brand {
@@ -168,27 +180,7 @@ html[data-theme="dark"] #themeToggle {
   fill: var(--neutral-700);
 }
 
-html[data-theme="dark"] .header {
-  box-shadow: none;
-}
-
-html[data-theme="dark"] .filter-btn {
-  box-shadow: none;
-}
-
-html[data-theme="dark"] .extension-card {
-  box-shadow: none;
-}
-
-html[data-theme="dark"] .filter-btn.is-active {
-  background: var(--red-400);
-}
-
-html[data-theme="dark"] .toggle-switch.is-active {
-  background: var(--red-400);
-}
-
-/* === Toolbar === */
+/* === 툴바(Toolbar) === */
 .toolbar {
   display: flex;
   flex-direction: column;
@@ -225,6 +217,7 @@ html[data-theme="dark"] .toggle-switch.is-active {
 
 html[data-theme="dark"] .filter-btn {
   border-color: var(--neutral-600);
+  box-shadow: none;
 }
 
 .filter-btn:hover {
@@ -248,7 +241,11 @@ html[data-theme="dark"] .filter-btn {
   padding-right: 20px;
 }
 
-/* === Extension List === */
+html[data-theme="dark"] .filter-btn.is-active {
+  background: var(--red-400);
+}
+
+/* === 확장 프로그램 목록(Extension List) === */
 .extension-list {
   list-style: none;
   display: flex;
@@ -271,6 +268,7 @@ html[data-theme="dark"] .filter-btn {
 
 html[data-theme="dark"] .extension-card {
   border-color: var(--neutral-600);
+  box-shadow: none;
 }
 
 .extension-card__top {
@@ -337,7 +335,7 @@ html[data-theme="dark"] .remove-btn {
   outline-offset: 2px;
 }
 
-/* === Toggle Switch === */
+/* === 토글 스위치(Toggle Switch) === */
 .toggle-switch {
   position: relative;
   width: 36px;
@@ -363,6 +361,10 @@ html[data-theme="dark"] .remove-btn {
   background: var(--red-700);
 }
 
+html[data-theme="dark"] .toggle-switch.is-active {
+  background: var(--red-400);
+}
+
 .toggle-switch.is-active::after {
   transform: translateX(14px);
 }
@@ -377,12 +379,15 @@ html[data-theme="dark"] .remove-btn {
   margin-bottom: 64px;
 }
 
+/* === 태블릿(768px+) === */
 @media (min-width: 768px) {
+  /* 헤더 */
   .header {
     margin-left: 32px;
     margin-right: 32px;
   }
 
+  /* 툴바 */
   .toolbar {
     flex-direction: row;
     margin-left: 32px;
@@ -390,6 +395,7 @@ html[data-theme="dark"] .remove-btn {
     justify-content: space-between;
   }
 
+  /* 확장 프로그램 목록 */
   .extension-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -405,7 +411,9 @@ html[data-theme="dark"] .remove-btn {
   }
 }
 
+/* === 데스크탑(1024px+) === */
 @media (min-width: 1024px) {
+  /* 헤더 */
   .header {
     margin-top: 40px;
     margin-left: 135px;
@@ -413,13 +421,16 @@ html[data-theme="dark"] .remove-btn {
     margin-bottom: 64px;
   }
 
-  .toolbar {
-    width: 1170px;
-    margin-left: auto;
-    margin-right: auto;
+  #themeToggle:hover {
+    fill: var(--neutral-300);
   }
 
-  #extensionList {
+  html[data-theme="dark"] #themeToggle:hover {
+    fill: var(--neutral-600);
+  }
+
+  /* 툴바 */
+  .toolbar {
     width: 1170px;
     margin-left: auto;
     margin-right: auto;
@@ -445,12 +456,15 @@ html[data-theme="dark"] .remove-btn {
     background: var(--red-500);
   }
 
-  #themeToggle:hover {
-    fill: var(--neutral-300);
+  /* 확장 프로그램 목록 */
+  #extensionList {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  html[data-theme="dark"] #themeToggle:hover {
-    fill: var(--neutral-600);
+  .extension-card {
+    width: calc(33.333% - 8px);
   }
 
   .remove-btn:hover {
@@ -458,12 +472,15 @@ html[data-theme="dark"] .remove-btn {
     color: var(--neutral-0);
   }
 
+  /* `border: none`이 아닌 border-color만 변경: 테두리가 차지하는 박스 공간은
+     유지되므로 호버(hover) 시 주변 레이아웃이 움직이지 않음 */
   html[data-theme="dark"] .remove-btn:hover {
     background: var(--red-400);
     color: var(--neutral-900);
     border-color: transparent;
   }
 
+  /* 토글 스위치 */
   .toggle-switch:hover {
     background: var(--neutral-600);
   }
@@ -472,19 +489,18 @@ html[data-theme="dark"] .remove-btn {
     background: var(--red-500);
   }
 
+  /* === 키보드 포커스(Focus Visible) === */
+  /* 데스크탑에서는 기본 red-700 포커스 아웃라인(outline) 대신 더 밝은
+     red-400을 사용: 이 breakpoint(중단점)의 넓고 밝은 표면에서 더 잘 보임 */
   .theme-toggle:focus-visible,
   .filter-btn:focus-visible,
   .remove-btn:focus-visible,
   .toggle-switch:focus-visible {
     outline-color: var(--red-400);
   }
-
-  .extension-card {
-    width: calc(33.333% - 8px);
-  }
 }
 
-/* === Footer === */
+/* === 푸터(Footer) === */
 .attribution {
   margin: var(--spacing-300) var(--spacing-200);
   color: var(--color-text-secondary);

@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+  <!-- 모바일 기기에서 올바른 렌더링과 터치 줌(zoom)을 보장함 -->
 
   <link rel="stylesheet" href="./style.css">
 
   <title>Browser extensions manager UI</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- Frontend Mentor 출처 표기(attribution) 푸터 스타일; 앱 UI의 일부는 아님 -->
   <style>
     .attribution {
       font-size: 0.6875rem;
@@ -25,7 +25,7 @@
 
 <body>
 
-  <!-- === Header === -->
+  <!-- === 헤더(Header): 브랜드 로고/타이틀과 라이트/다크 테마 토글 === -->
   <header class="header">
     <div class="header__brand">
       <svg class="header__icon" width="32" height="32" viewBox="0 0 40 41" fill="none"
@@ -41,7 +41,7 @@
   </header>
 
   <main>
-    <!-- === Toolbar (Title + Filter) === -->
+    <!-- === 툴바(Toolbar): 페이지 타이틀과 All/Active/Inactive 필터 그룹 === -->
     <div class="toolbar">
       <h1 class="toolbar__title">Extensions List</h1>
       <div class="filters" role="group" aria-label="확장 프로그램 필터">
@@ -51,7 +51,8 @@
       </div>
     </div>
 
-    <!-- === Extension List === -->
+    <!-- === 확장 프로그램 목록(Extension List): script.js의 render()가 채움 ===
+         마크업에서는 비어 있으며, aria-live가 변경 사항을 스크린 리더에 알림 -->
     <ul class="extension-list" id="extensionList" aria-live="polite"></ul>
   </main>
 
