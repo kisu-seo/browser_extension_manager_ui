@@ -13,8 +13,8 @@
 
 ### Screenshot
 
-![Project Screenshot](./browser_extension_manager_ui_1.png)
-![Project Screenshot](./browser_extension_manager_ui_2.png)
+![Project Screenshot](./browser_extensions_manager_ui_1.png)
+![Project Screenshot](./browser_extensions_manager_ui_2.png)
 
 ### Links
 
