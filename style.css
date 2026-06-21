@@ -239,7 +239,7 @@ html[data-theme="dark"] .filter-btn {
 .filter-btn.is-active {
   background: var(--red-700);
   border: none;
-  color: var(--neutral-900);
+  color: var(--neutral-0);
   font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
@@ -402,6 +402,85 @@ html[data-theme="dark"] .remove-btn {
 
   .extension-card {
     width: calc(50% - 6px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin-top: 40px;
+    margin-left: 135px;
+    margin-right: 135px;
+    margin-bottom: 64px;
+  }
+
+  .toolbar {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #extensionList {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .filter-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .filter-btn:hover {
+    background: rgba(251, 253, 254, 0.7);
+    color: rgba(9, 21, 64, 0.7);
+    border-color: var(--neutral-200);
+  }
+
+  .filter-btn.is-active:hover {
+    background: var(--red-500);
+    color: var(--neutral-0);
+  }
+
+  html[data-theme="dark"] .filter-btn.is-active:hover {
+    background: var(--red-500);
+  }
+
+  #themeToggle:hover {
+    fill: var(--neutral-300);
+  }
+
+  html[data-theme="dark"] #themeToggle:hover {
+    fill: var(--neutral-600);
+  }
+
+  .remove-btn:hover {
+    background: var(--red-700);
+    color: var(--neutral-0);
+  }
+
+  html[data-theme="dark"] .remove-btn:hover {
+    background: var(--red-400);
+    color: var(--neutral-900);
+    border-color: transparent;
+  }
+
+  .toggle-switch:hover {
+    background: var(--neutral-600);
+  }
+
+  .toggle-switch.is-active:hover {
+    background: var(--red-500);
+  }
+
+  .theme-toggle:focus-visible,
+  .filter-btn:focus-visible,
+  .remove-btn:focus-visible,
+  .toggle-switch:focus-visible {
+    outline-color: var(--red-400);
+  }
+
+  .extension-card {
+    width: calc(33.333% - 8px);
   }
 }
 
